@@ -3,6 +3,7 @@
 namespace Nanuc\Helpers;
 
 use Illuminate\Support\ServiceProvider;
+use Nanuc\Helpers\View\Components\DateTime;
 
 class HelpersServiceProvider extends ServiceProvider
 {
@@ -12,6 +13,12 @@ class HelpersServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../resources/lang' => resource_path('lang/vendor/helpers'),
+        ]);
+
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'helpers');
+
+        $this->loadViewComponentsAs('helpers', [
+            DateTime::class,
         ]);
     }
 
