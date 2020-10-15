@@ -20,3 +20,8 @@ Available formats (example for German):
     'short-appendix' => '%H:%M Uhr',
 ],
 ```
+
+### Helpscout
+#### Embed Beacon
+Include your beacon key in your .env:
+`HELPSCOUT_BEACON_KEY=12345678-abcd-efgh-1234-abcdefghijkl`
