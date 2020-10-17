@@ -2,6 +2,9 @@
 
 namespace Nanuc\Helpers;
 
+use Nanuc\Helpers\View\Components\Tabs\TabContent;
+use Nanuc\Helpers\View\Components\Tabs\TabLink;
+use Nanuc\Helpers\View\Components\Tabs\Tabs;
 use Illuminate\Support\ServiceProvider;
 use Nanuc\Helpers\View\Components\DateTime;
 use Nanuc\Helpers\View\Components\HelpscoutBeacon;
@@ -25,6 +28,9 @@ class HelpersServiceProvider extends ServiceProvider
         $this->loadViewComponentsAs('helpers', [
             DateTime::class,
             HelpscoutBeacon::class,
+            'tabs.tabs' => Tabs::class,
+            'tabs.tab-link' => TabLink::class,
+            'tabs.tab-content' => TabContent::class,
         ]);
     }
 

@@ -21,6 +21,25 @@ Available formats (example for German):
 ],
 ```
 
+### Tabs
+```
+<x-helpers-tabs.tabs activeElement="tab1">
+
+    <x-slot name="links" >
+        <x-helpers-tabs.tab-link id="tab1" :title="__('Tab 1')" type="underline"/>
+        <x-helpers-tabs.tab-link id="tab2" :title="__('Tab 2')" type="underline"/>
+    </x-slot>
+
+
+    <x-helpers-tabs.tab-content id="tab1">
+        Content Tab 1
+    </x-helpers-tabs.tab-content>
+    <x-helpers-tabs.tab-content id="tab2">
+        Content Tab 2
+    </x-helpers-tabs.tab-content>
+</x-helpers-tabs.tabs>
+```
+
 ### Helpscout
 #### Embed Beacon
 Include your beacon key in your .env:
