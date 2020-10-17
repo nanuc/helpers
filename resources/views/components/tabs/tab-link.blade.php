@@ -5,6 +5,7 @@
         @click="tab = '{{ $id }}'"
         x-on:load-tab.window="if($event.detail.tab == '{{ $id }}') { tab =  '{{ $id }}'}; "
         @if($onclick) onclick="{{ $onclick }}" @endif
+        >
         {{ $title }}
     </button>
 @elseif($type == 'icon')
@@ -15,6 +16,7 @@
         title="{{ $title }}"
         x-on:load-tab.window="if($event.detail.tab == '{{ $id }}') { tab =  '{{ $id }}'}"
         @if($onclick) onclick="{{ $onclick }}" @endif
+        >
         <i class="{{ $icon }}"></i>
     </button>
 @elseif($type == 'pills')
@@ -24,6 +26,7 @@
         @click="tab = '{{ $id }}'"
         x-on:load-tab.window="if($event.detail.tab == '{{ $id }}') { tab =  '{{ $id }}'}"
         @if($onclick) onclick="{{ $onclick }}" @endif
+        >
         {{ $title }}
     </button>
 @elseif($type == 'pills-sm')
@@ -33,6 +36,7 @@
         @click="tab = '{{ $id }}'"
         x-on:load-tab.window="if($event.detail.tab == '{{ $id }}') { tab =  '{{ $id }}'}"
         @if($onclick) onclick="{{ $onclick }}" @endif
+        >
         {{ $title }}
     </button>
 @endif
