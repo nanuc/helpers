@@ -12,18 +12,20 @@ class TabLink extends Component
     public $type;
     public $icon;
     public $onclick;
+    public $colorScheme;
 
     /**
      * Help constructor.
      * @param $helpText
      */
-    public function __construct($id, $title, $type = 'underline', $icon = '', $onclick = null)
+    public function __construct($id, $title, $type = 'underline', $colorScheme = 'teal', $icon = '', $onclick = null)
     {
         $this->id = $id;
         $this->title = __($title);
         $this->type = $type;
         $this->icon = $icon;
         $this->onclick = $onclick;
+        $this->colorScheme = $colorScheme;
     }
 
     /**
