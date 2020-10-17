@@ -2,6 +2,10 @@
 `composer require nanuc/helpers`
 
 ## Usage
+### Quick log
+Just an abbreviation for `Log::info`:
+`l('Log something');`
+
 ### DateTime helper
 `<x-helpers-date-time format="date.short" :date="$user->updated_at"/>`
 
