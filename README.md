@@ -24,12 +24,10 @@ Available formats (example for German):
 ### Tabs
 ```
 <x-helpers-tabs.tabs activeElement="tab1">
-
     <x-slot name="links" >
-        <x-helpers-tabs.tab-link id="tab1" :title="__('Tab 1')" type="underline"/>
-        <x-helpers-tabs.tab-link id="tab2" :title="__('Tab 2')" type="underline"/>
+        <x-helpers-tabs.tab-link id="tab1" title="Tab 1" type="underline"/>
+        <x-helpers-tabs.tab-link id="tab2" title="Tab 2" type="underline"/>
     </x-slot>
-
 
     <x-helpers-tabs.tab-content id="tab1">
         Content Tab 1
