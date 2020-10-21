@@ -11,3 +11,14 @@ if (! function_exists('l')) {
         \Illuminate\Support\Facades\Log::info($string);
     }
 }
+
+if (! function_exists('currentTeam')) {
+    /**
+     * The current team.
+     *
+     */
+    function currentTeam()
+    {
+        return optional(auth()->user())->currentTeam;
+    }
+}
