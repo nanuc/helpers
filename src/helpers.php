@@ -16,6 +16,8 @@ if (! function_exists('currentTeam')) {
     /**
      * The current team.
      *
+     * @return App\Models\Team
+     *
      */
     function currentTeam()
     {
