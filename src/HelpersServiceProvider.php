@@ -32,10 +32,18 @@ class HelpersServiceProvider extends ServiceProvider
             'tabs.tab-link' => TabLink::class,
             'tabs.tab-content' => TabContent::class,
         ]);
+
+        $this->setLocale();
     }
 
     public function register()
     {
+        $this->app->register(EventServiceProvider::class);
         $this->mergeConfigFrom(__DIR__ . '/../config/helpers.php', 'helpers');
+    }
+
+    protected function setLocale()
+    {
+        LocaleSetter::make()->setLocale(app()->getLocale());
     }
 }
