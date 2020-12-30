@@ -1,16 +1,16 @@
 <?php
 
 return [
-    'medium' => '%a, %d. %b %Y %H:%M',
-    'long' => '%A, %d. %B %Y %H:%M',
-    'short' => '%d.%m.%Y, %H:%M',
-    'with-seconds' => '%d.%m.%Y, %H:%M:%S',
+    'medium' => '%a, %b %d, %Y, %I:%M%p',
+    'long' => '%A, %B %d, %Y, %I:%M%p',
+    'short' => '%m/%d/%Y, %I:%M%p',
+    'with-seconds' => '%m/%d/%Y, %H:%M:%S',
     'date' => [
-        'short' => '%d.%m.%Y',
-        'medium' => '%A, %d. %B %Y',
+      'short' => '%m/%d/%Y',
+      'medium' => '%A, %B %d, %Y',
     ],
     'time' => [
-        'short' => '%H:%M',
-        'short-appendix' => '%H:%M Uhr',
+      'short' => '%I:%M%P',
+      'short-appendix' => '%I:%M%P',
     ],
 ];
