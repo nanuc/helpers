@@ -26,14 +26,24 @@ Available formats (example for German):
 ```
 
 ### Tabs
-
-Add the following to your styles (e.g. `resources/css/app.css`):
+Use it like:
 ```
-<style>
-    [x-cloak] { display: none; }
-</style>
+<x-helpers::tabs active="First">
+    <x-helpers::tab name="First">
+        First content goes here.
+    </x-helpers::tab>
+    
+    <x-helpers::tab name="Second">
+        Second content goes here.
+    </x-helpers::tab>
+    
+    <x-helpers::tab name="Third">
+        Third content goes here.
+    </x-helpers::tab>
+</x-helpers::tabs>
 ```
 
+#### Legacy tabs
 Use it like:
 ```
 <x-helpers-tabs.tabs activeElement="tab1">
