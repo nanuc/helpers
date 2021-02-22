@@ -12,5 +12,6 @@ return [
     'time' => [
         'short' => '%H:%M',
         'short-appendix' => '%H:%M Uhr',
+        'with-weekday' => '%A, %H:%M Uhr',
     ],
 ];
