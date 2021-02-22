@@ -10,7 +10,7 @@ return [
       'medium' => '%A, %B %d, %Y',
     ],
     'time' => [
-      'short' => '%I:%M%P',
-      'short-appendix' => '%I:%M%P',
+      'short' => '%I:%M%p',
+      'short-appendix' => '%I:%M%p',
     ],
 ];
