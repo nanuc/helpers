@@ -2,6 +2,7 @@
 
 namespace Nanuc\Helpers;
 
+use Illuminate\Support\Collection;
 use Nanuc\Helpers\View\Components\Tabs\TabContent;
 use Nanuc\Helpers\View\Components\Tabs\TabLink;
 use Nanuc\Helpers\View\Components\Tabs\Tabs;
@@ -40,10 +41,23 @@ class HelpersServiceProvider extends ServiceProvider
     {
         $this->app->register(EventServiceProvider::class);
         $this->mergeConfigFrom(__DIR__ . '/../config/helpers.php', 'helpers');
+        $this->registerCollectionMacros();
     }
 
     protected function setLocale()
     {
         LocaleSetter::make()->setLocale(app()->getLocale());
+    }
+
+    protected function registerCollectionMacros()
+    {
+        Collection::macro('enumerate', function () {
+            if(count($this) < 2) {
+                return $this;
+            }
+
+            $lastElement = $this->pop();
+            return $this->implode(', ') . ' ' . __('helpers::helpers.and') . ' ' . $lastElement;
+        });
     }
 }
