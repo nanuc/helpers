@@ -1,6 +1,7 @@
 @props([
     'active',
-    'color' => 'green'
+    'color' => 'green',
+    'style' => 'underline'
 ])
 
 <div x-data="{
@@ -41,23 +42,41 @@
             </select>
         </div>
         <div class="hidden sm:block">
-            <div class="border-b border-gray-200">
-                <nav class="-mb-px flex" aria-label="Tabs">
+            @if($style == 'underline')
+                <div class="border-b border-gray-200">
+                    <nav class="-mb-px flex" aria-label="Tabs">
+                        <template x-for="(tab, index) in tabHeadings" :key="index">
+                            <a
+                                @click="activeTab = tab; toggleTabs();"
+                                href="#"
+                                x-text="tab"
+                                class=" whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm mr-8"
+                                :class="tab === activeTab ? 'border-{{ $color }}-500 text-{{ $color }}-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'"
+                                :id="`tab-${index + 1}`"
+                                role="tab"
+                                :aria-selected="(tab === activeTab).toString()"
+                                :aria-controls="`tab-panel-${index + 1}`"
+                            />
+                        </template>
+                    </nav>
+                </div>
+            @elseif($style == 'pills')
+                <nav class="flex" aria-label="Tabs">
                     <template x-for="(tab, index) in tabHeadings" :key="index">
                         <a
-                            @click="activeTab = tab; toggleTabs();"
-                            href="#"
-                            x-text="tab"
-                            class=" whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm mr-8"
-                            :class="tab === activeTab ? 'border-{{ $color }}-500 text-{{ $color }}-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'"
-                            :id="`tab-${index + 1}`"
-                            role="tab"
-                            :aria-selected="(tab === activeTab).toString()"
-                            :aria-controls="`tab-panel-${index + 1}`"
+                                @click="activeTab = tab; toggleTabs();"
+                                href="#"
+                                x-text="tab"
+                                class="px-3 py-2 font-medium text-sm rounded-md"
+                                :class="tab === activeTab ? 'text-{{ $color }}-700 bg-{{ $color }}-100' : 'text-{{ $color }}-500 hover:text-{{ $color }}-700'"
+                                :id="`tab-${index + 1}`"
+                                role="tab"
+                                :aria-selected="(tab === activeTab).toString()"
+                                :aria-controls="`tab-panel-${index + 1}`"
                         />
                     </template>
                 </nav>
-            </div>
+            @endif
         </div>
     </div>
 

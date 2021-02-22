@@ -1,1 +1,1 @@
-<time datetime="{{ $raw }}">{{ $html }}</time>
+<time datetime="{{ $raw }}">{!! $html !!}</time>

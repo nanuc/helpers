@@ -14,7 +14,7 @@ class DateTime extends Component
     public function __construct($format = 'short', $date = 'now', $entitites = true)
     {
         $dateTime = strtotime($date);
-        $datetimeString = utf8_encode(strftime(trans('helpers::datetime.'.$format), $dateTime));
+        $datetimeString = strftime(trans('helpers::datetime.'.$format), $dateTime);
 
         $this->raw = Carbon::parse($dateTime)->format('Y-m-d H:i:s');
         $this->html = $entitites ? htmlentities($datetimeString) : $datetimeString;
