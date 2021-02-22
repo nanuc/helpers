@@ -6,13 +6,9 @@ use Illuminate\Support\Arr;
 
 class LocaleSetter
 {
-    protected $mapping = [
-        'de' => 'de_DE',
-    ];
-
     protected function map($locale)
     {
-        return Arr::get($this->mapping, $locale);
+        return Arr::get(config('helpers.locale-setter.mapping'), $locale);
     }
 
     public function setLocale($locale)
