@@ -23,7 +23,7 @@ if (! function_exists('datetime')) {
      */
     function datetime($format, $date = 'now', $entitites = true)
     {
-        $datetimeString = utf8_encode(strftime(trans('helpers::datetime.' . $format), strtotime($date)));
+        $datetimeString = strftime(trans('helpers::datetime.' . $format), strtotime($date));
 
         return $entitites ? htmlentities($datetimeString) : $datetimeString;
 
