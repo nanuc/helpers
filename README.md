@@ -1,6 +1,10 @@
 ## Installation
 `composer require nanuc/helpers`
 
+Publish config: 
+`php artisan vendor:publish --provider="Nanuc\Helpers\HelpersServiceProvider" --tag=config`
+
+
 ## Usage
 ### Quick log
 Just an abbreviation for `Log::info`:
@@ -43,6 +47,7 @@ Use it like:
 </x-helpers::tabs>
 ```
 
+
 #### Legacy tabs
 Use it like:
 ```
@@ -60,6 +65,35 @@ Use it like:
     </x-helpers-tabs.tab-content>
 </x-helpers-tabs.tabs>
 ```
+
+
+### Socialite login
+**Jetstream needs to be installed for this to work.**
+
+Set credentials
+(https://laravel.com/docs/8.x/socialite#configuration)
+```dotenv
+GOOGLE_CLIENT_ID=...
+GOOGLE_CLIENT_SECRET=...
+GOOGLE_REDIRECT=https://yoururl.com/auth/google/callback
+```
+
+Enable Socialite in config
+```php
+// config/helpers.php
+return [
+    // ...
+    'socialite' => [
+        'enabled' => true,
+    ]
+];
+```
+
+Install Socialite:
+`composer require laravel/socialite`
+
+#### Login Buttons
+`<x-helpers::buttons.social-login provider="google"/>`
 
 ### Helpscout
 #### Embed Beacon

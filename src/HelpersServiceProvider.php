@@ -22,9 +22,15 @@ class HelpersServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../config/helpers.php' => config_path('helpers.php'),
+        ], 'config');
+
+        $this->publishes([
+            __DIR__.'/../config/helpers.php' => config_path('helpers.php'),
         ]);
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'helpers');
+
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
         $this->loadViewComponentsAs('helpers', [
             DateTime::class,

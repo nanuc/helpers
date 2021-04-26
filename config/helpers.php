@@ -15,4 +15,8 @@ return [
             'es' => 'es_ES.UTF8',
         ],
     ],
+    'socialite' => [
+        'enabled' => false,
+        'redirect-to' => 'dashboard'
+    ]
 ];
