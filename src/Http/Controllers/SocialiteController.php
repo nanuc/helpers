@@ -24,7 +24,7 @@ class SocialiteController
             $user = $userModel::firstWhere('email', $socialiteUser->getEmail());
 
             if (!$user) {
-                $password = bcrypt(Str::random(200));
+                $password = Str::random(200);
 
                 $user = (new \App\Actions\Fortify\CreateNewUser)->create([
                     'email'              => $socialiteUser->getEmail(),
