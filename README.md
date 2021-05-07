@@ -66,6 +66,12 @@ Use it like:
 </x-helpers-tabs.tabs>
 ```
 
+### Collection macros
+#### enumerate
+`collect([1, 2, 3])` => `"1, 2 and 3"`
+
+#### toEloquentCollection
+Transforms an usual collection to an Eloquent collection.
 
 ### Socialite login
 **Jetstream needs to be installed for this to work.**

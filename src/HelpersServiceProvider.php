@@ -65,5 +65,9 @@ class HelpersServiceProvider extends ServiceProvider
             $lastElement = $this->pop();
             return $this->implode(', ') . ' ' . __('helpers::helpers.and') . ' ' . $lastElement;
         });
+
+        Collection::macro('toEloquentCollection', function () {
+            return new \Illuminate\Database\Eloquent\Collection($this);
+        });
     }
 }
