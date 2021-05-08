@@ -12,6 +12,7 @@
      role="tabpanel"
      :aria-labelledby="`tab-${id}`"
      :id="`tab-panel-${id}`"
+     class="h-full"
 >
     {{ $slot }}
 </div>
