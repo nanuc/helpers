@@ -3,6 +3,7 @@
 namespace Nanuc\Helpers;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Nanuc\Helpers\View\Components\Tabs\TabContent;
 use Nanuc\Helpers\View\Components\Tabs\TabLink;
 use Nanuc\Helpers\View\Components\Tabs\Tabs;
@@ -48,6 +49,7 @@ class HelpersServiceProvider extends ServiceProvider
         $this->app->register(EventServiceProvider::class);
         $this->mergeConfigFrom(__DIR__ . '/../config/helpers.php', 'helpers');
         $this->registerCollectionMacros();
+        $this->registerStringMacros();
     }
 
     protected function setLocale()
@@ -68,6 +70,19 @@ class HelpersServiceProvider extends ServiceProvider
 
         Collection::macro('toEloquentCollection', function () {
             return new \Illuminate\Database\Eloquent\Collection($this);
+        });
+    }
+
+    protected function registerStringMacros()
+    {
+        Str::macro('icontains', function($haystack, $needles) {
+            foreach ((array) $needles as $needle) {
+                if ($needle !== '' && mb_stripos($haystack, $needle) !== false) {
+                    return true;
+                }
+            }
+
+            return false;
         });
     }
 }
