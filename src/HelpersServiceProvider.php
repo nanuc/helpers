@@ -51,7 +51,6 @@ class HelpersServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/helpers.php', 'helpers');
         $this->registerCollectionMacros();
         $this->registerStringMacros();
-        $this->registerArrayMacros();
     }
 
     protected function setLocale()
@@ -59,16 +58,15 @@ class HelpersServiceProvider extends ServiceProvider
         LocaleSetter::make()->setLocale(app()->getLocale());
     }
 
-    protected function registerArrayMacros()
-    {
-        Arr::macro('increment', function(&$array, $key, $incrementBy = 1) {
-            $newValue = Arr::get($array, $key, 0) + $incrementBy;
-            Arr::set($array, $key, $newValue);
-        });
-    }
-
     protected function registerCollectionMacros()
     {
+        Collection::macro('increment', function ($key, $incrementBy = 1) {
+            $newValue = Arr::get($this, $key, 0) + $incrementBy;
+            $data = $this->toArray();
+            Arr::set($data, $key, $newValue);
+            return collect($data);
+        });
+
         Collection::macro('enumerate', function () {
             if(count($this) < 2) {
                 return $this;
