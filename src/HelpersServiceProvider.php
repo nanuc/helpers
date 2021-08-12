@@ -2,6 +2,7 @@
 
 namespace Nanuc\Helpers;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Nanuc\Helpers\View\Components\Tabs\TabContent;
@@ -50,11 +51,20 @@ class HelpersServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/helpers.php', 'helpers');
         $this->registerCollectionMacros();
         $this->registerStringMacros();
+        $this->registerArrayMacros();
     }
 
     protected function setLocale()
     {
         LocaleSetter::make()->setLocale(app()->getLocale());
+    }
+
+    protected function registerArrayMacros()
+    {
+        Arr::macro('increment', function(&$array, $key, $incrementBy = 1) {
+            $newValue = Arr::get($array, $key, 0) + $incrementBy;
+            Arr::set($array, $key, $newValue);
+        });
     }
 
     protected function registerCollectionMacros()
