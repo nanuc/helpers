@@ -57,3 +57,24 @@ if (! function_exists('userHasTeamRole')) {
         return false;
     }
 }
+
+if (! function_exists('remove_special_signs')) {
+    function remove_special_signs($string)
+    {
+        $string = str_replace(' ', '_', $string);
+
+        $string = strtr($string,
+            [
+                'ä' => 'ae',
+                'ö' => 'oe',
+                'ü' => 'ue',
+                'Ä' => 'Ae',
+                'Ö' => 'Oe',
+                'Ü' => 'Ue',
+                'ß' => 'ss',
+            ]);
+
+
+        return preg_replace('/[^A-Za-z0-9\-_]/', '', $string);
+    }
+}
