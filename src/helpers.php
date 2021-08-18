@@ -31,7 +31,7 @@ if (! function_exists('datetime')) {
 }
 
 if (! function_exists('currentTeam')) {
-    function currentTeam(): ?\Domain\UsersAndTeams\Models\Team
+    function currentTeam()
     {
         return optional(auth()->user())->currentTeam;
     }
