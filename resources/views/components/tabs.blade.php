@@ -24,6 +24,7 @@
      }",
      wire:ignore.self
      wire:key="{{ \Illuminate\Support\Str::random() }}"
+     @set-tab.window="activeTab = $event.detail.tab; toggleTabs();"
      class="flex flex-col h-full"
 >
     <div class="mb-3" role="tablist" class="h-full">
