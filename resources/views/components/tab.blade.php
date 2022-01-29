@@ -1,9 +1,6 @@
 @props(['name'])
 
-<div x-data="{
-        id: '',
-        name: '{{ $name }}',
-    }"
+<div wire:key="tab-{{ $name }}" x-data="{ id: '', name: '{{ $name }}' }"
      x-show="name === activeTab"
      role="tabpanel"
      :aria-labelledby="`tab-${id}`"
