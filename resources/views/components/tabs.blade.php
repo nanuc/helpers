@@ -1,8 +1,9 @@
-@props(['active', 'color' => 'blue', 'style' => 'underline'])
+@props(['active' => '', 'color' => 'blue', 'style' => 'underline'])
 
 <div
-        @register-tab.stop="headings.push($event.detail.name)"
-        x-data="{ activeTab: '{{ $active }}', headings: [] }"
+        @register-tab.stop="headings.push($event.detail.name); activeTab = activeTab == '' ? $event.detail.name : activeTab;"
+        x-data="{ activeTab: '{{ $active }}' , headings: [] }"
+        x-cloak
 >
 
     <div class="mb-3" role="tablist">
