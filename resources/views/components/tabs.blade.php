@@ -1,4 +1,4 @@
-@props(['active' => '', 'color' => 'blue', 'style' => 'underline'])
+@props(['active' => '', 'color' => 'primary', 'style' => 'underline'])
 
 <div
         @register-tab.stop="headings.push($event.detail.name); activeTab = activeTab == '' ? $event.detail.name : activeTab;"
@@ -51,8 +51,8 @@
                 <template x-for="(tab, index) in headings" :key="index">
                     <button x-text="tab"
                             @click="activeTab = tab;"
-                            class="cursor-pointer px-4 py-1 text-sm rounded hover:bg-blue-500 hover:text-white"
-                            :class="tab === activeTab ? 'bg-blue-500 text-white' : 'text-gray-800'"
+                            class="cursor-pointer px-4 py-1 text-sm rounded hover:bg-primary-500 hover:text-white"
+                            :class="tab === activeTab ? 'bg-primary-500 text-white' : 'text-gray-800'"
                             :id="`tab-${index + 1}`"
                             role="tab"
                             :aria-selected="(tab === activeTab).toString()"
