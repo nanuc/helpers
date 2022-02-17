@@ -1,6 +1,6 @@
-@props(['size' => 'lg', 'caption', 'heading', 'trigger', 'updateButtonText' => __('Update')])
+@props(['width' => 'lg', 'caption', 'heading', 'trigger', 'updateButtonText' => __('Update')])
 
-<x-app-ui::modal>
+<x-app-ui::modal :width="$width">
     <x-slot name="trigger">
         @if(isset($trigger))
             {{ $trigger }}

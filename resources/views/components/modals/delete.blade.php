@@ -1,6 +1,6 @@
-@props(['size' => 'lg', 'header', 'type' => 'icon', 'passcode' => null])
+@props(['width' => 'lg', 'header', 'type' => 'icon', 'passcode' => null])
 
-<x-app-ui::modal x-data="{ enabled: false, name: '', passcode: '{{ $passcode }}' }">
+<x-app-ui::modal :width="$width" x-data="{ enabled: false, name: '', passcode: '{{ $passcode }}' }">
     <x-slot name="trigger">
         @if($type == 'icon')
             <x-app-ui::icon-button color="secondary" icon="iconic-trash" x-on:click="open = true"/>
