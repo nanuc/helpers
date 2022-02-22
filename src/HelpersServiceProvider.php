@@ -79,6 +79,35 @@ class HelpersServiceProvider extends ServiceProvider
         Collection::macro('toEloquentCollection', function () {
             return new \Illuminate\Database\Eloquent\Collection($this);
         });
+
+        Collection::macro('explode', function($delimiter) {
+            $counter = 0;
+            $result = [];
+
+            foreach($this->values() as $element) {
+                if($element == $delimiter) {
+                    $counter++;
+                }
+                else {
+                    $result[$counter][] = $element;
+                }
+            }
+
+            return collect($result);
+        });
+
+        Collection::macro('log', function () {
+            info($this->toArray());
+            return $this;
+        });
+
+        Arr::macro('remove', function($array, $value) {
+            if (($key = array_search($value, $array)) !== false) {
+                unset($array[$key]);
+            }
+
+            return $array;
+        });
     }
 
     protected function registerStringMacros()
