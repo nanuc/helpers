@@ -5,6 +5,7 @@ namespace Nanuc\Helpers;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Nanuc\Helpers\View\Components\Date;
 use Nanuc\Helpers\View\Components\Tabs\TabContent;
 use Nanuc\Helpers\View\Components\Tabs\TabLink;
 use Nanuc\Helpers\View\Components\Tabs\Tabs;
@@ -35,6 +36,7 @@ class HelpersServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
         $this->loadViewComponentsAs('helpers', [
+            Date::class,
             DateTime::class,
             HelpscoutBeacon::class,
             'tabs.tabs' => Tabs::class,
