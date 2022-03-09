@@ -17,6 +17,6 @@ class Date extends Component
 
     public function render(): View
     {
-        return view('components.date');
+        return view('helpers::components.date');
     }
 }
