@@ -69,13 +69,15 @@ class HelpersServiceProvider extends ServiceProvider
             return collect($data);
         });
 
-        Collection::macro('enumerate', function () {
+        Collection::macro('enumerate', function ($joinWord = null) {
+            $joinWord = $joinWord ?? __('helpers::helpers.and');
+
             if(count($this) < 2) {
                 return $this;
             }
 
             $lastElement = $this->pop();
-            return $this->implode(', ') . ' ' . __('helpers::helpers.and') . ' ' . $lastElement;
+            return $this->implode(', ') . ' ' . $joinWord . ' ' . $lastElement;
         });
 
         Collection::macro('toEloquentCollection', function () {
