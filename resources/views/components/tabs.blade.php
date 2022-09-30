@@ -4,6 +4,7 @@
         @register-tab.stop="headings.push($event.detail.name); activeTab = activeTab == '' ? $event.detail.name : activeTab;"
         x-data="{ activeTab: '{{ $active }}' , headings: [] }"
         x-cloak
+        class="h-full flex flex-col"
 >
 
     <div class="mb-3" role="tablist">
@@ -63,7 +64,7 @@
         </div>
     </div>
 
-    <div x-ref="tabs">
+    <div x-ref="tabs" class="overflow-y-auto">
         {{$slot}}
     </div>
 </div>
