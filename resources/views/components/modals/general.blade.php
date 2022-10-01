@@ -1,8 +1,8 @@
-@props(['width' => 'lg', 'caption', 'heading', 'buttonSize' => 'md', 'actionButtonText' => null, 'action', 'closeButtonText' => __('Close')])
+@props(['width' => 'lg', 'caption', 'heading', 'buttonSize' => 'md', 'triggerButtonColor' => 'secondary', 'actionButtonText' => null, 'action', 'closeButtonText' => __('Close')])
 
 <x-app-ui::modal :width="$width">
     <x-slot name="trigger">
-        <x-app-ui::button x-on:click="open = true" :size="$buttonSize" color="secondary">
+        <x-app-ui::button x-on:click="open = true" :size="$buttonSize" :color="$triggerButtonColor">
             {{ $caption }}
         </x-app-ui::button>
     </x-slot>
