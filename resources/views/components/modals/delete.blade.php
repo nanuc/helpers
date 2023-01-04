@@ -1,9 +1,18 @@
-@props(['width' => 'lg', 'header', 'type' => 'icon', 'passcode' => null])
+@props([
+    'width' => 'lg',
+    'header',
+    'type' => 'icon',
+    'passcode' => null,
+    'buttonSize' => 5,
+    'color' => 'primary',
+])
 
 <x-app-ui::modal :width="$width" x-data="{ enabled: false, name: '', passcode: '{{ $passcode }}' }">
     <x-slot name="trigger">
         @if($type == 'icon')
             <x-app-ui::icon-button color="primary" icon="heroicon-o-trash" x-on:click="open = true"/>
+        @elseif($type == 'custom-icon')
+            <x-heroicon-o-trash class="text-{{ $color }}-500 hover:text-{{ $color }}-700 w-{{ $buttonSize }} h-{{ $buttonSize }}" x-on:click="open = true"/>
         @elseif($type == 'link')
             <x-app-ui::link x-on:click="open = true">{{ __('Delete') }}</x-app-ui::link>
         @elseif($type == 'textWithIcon')
