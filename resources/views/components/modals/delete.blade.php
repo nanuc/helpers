@@ -3,11 +3,11 @@
 <x-app-ui::modal :width="$width" x-data="{ enabled: false, name: '', passcode: '{{ $passcode }}' }">
     <x-slot name="trigger">
         @if($type == 'icon')
-            <x-app-ui::icon-button color="primary" icon="iconic-trash" x-on:click="open = true"/>
+            <x-app-ui::icon-button color="primary" icon="heroicon-o-trash" x-on:click="open = true"/>
         @elseif($type == 'link')
             <x-app-ui::link x-on:click="open = true">{{ __('Delete') }}</x-app-ui::link>
         @elseif($type == 'textWithIcon')
-            <x-app-ui::button icon="iconic-trash" color="secondary" x-on:click="open = true">{{ __('Delete') }}</x-app-ui::button>
+            <x-app-ui::button icon="heroicon-o-trash" color="secondary" x-on:click="open = true">{{ __('Delete') }}</x-app-ui::button>
         @endif
     </x-slot>
 
