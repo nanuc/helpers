@@ -1,10 +1,16 @@
-@props(['width' => 'lg', 'caption', 'heading', 'buttonSize' => 'md', 'triggerButtonColor' => 'secondary', 'actionButtonText' => null, 'action', 'closeButtonText' => __('Close')])
+@props(['type' => 'button', 'icon', 'width' => 'lg', 'caption', 'heading', 'buttonSize' => 'md', 'triggerButtonColor' => 'secondary', 'actionButtonText' => null, 'action', 'closeButtonText' => __('Close')])
 
 <x-app-ui::modal :width="$width">
     <x-slot name="trigger">
-        <x-app-ui::button x-on:click="open = true" :size="$buttonSize" :color="$triggerButtonColor">
-            {{ $caption }}
-        </x-app-ui::button>
+        @if($type == 'icon')
+            <x-app-ui::icon-button color="primary" :icon="$icon" x-on:click="open = true"/>
+        @elseif($type == 'link')
+            <x-app-ui::link x-on:click="open = true">{{ __('Delete') }}</x-app-ui::link>
+        @elseif($type == 'button')
+            <x-app-ui::button x-on:click="open = true" :size="$buttonSize" :color="$triggerButtonColor">
+                {{ $caption }}
+            </x-app-ui::button>
+        @endif
     </x-slot>
 
     <x-slot name="heading">
